@@ -12,24 +12,20 @@ export class SseService {
             const eventSource = new EventSource(url);
 
             eventSource.onopen = () => {
-                this._zone.run(() => {
-                    console.log('SSE connection opened');
-                    observer.next({ type: 'status', data: 'Connected' });
-                });
+                console.log('SSE connection opened');
+                // Zone.js patches EventSource, so we should be in the zone.
+                // But if not, the component will force detection.
+                observer.next({ type: 'status', data: 'Connected' });
             };
 
             eventSource.onmessage = event => {
-                this._zone.run(() => {
-                    console.log('SSE message received:', event.data);
-                    observer.next(event);
-                });
+                console.log('SSE message received:', event.data);
+                observer.next(event);
             };
 
             eventSource.onerror = error => {
-                this._zone.run(() => {
-                    console.error('SSE connection error:', error);
-                    observer.error(error);
-                });
+                console.error('SSE connection error:', error);
+                observer.error(error);
             };
 
             return () => eventSource.close();
