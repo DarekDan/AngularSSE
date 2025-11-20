@@ -17,7 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
     title = 'frontend';
     notificationMessage: string = '';
     showNotification: boolean = false;
-    connectionStatus: string = 'Connecting...';
+    connectionStatus: string = 'Awaiting messages...';
     private sseSubscription?: Subscription;
 
     constructor(private sseService: SseService, private cdr: ChangeDetectorRef) { }
