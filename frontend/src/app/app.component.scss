@@ -1,0 +1,32 @@
+.black-bar {
+    height: 60px;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1000;
+
+    .logo {
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    nav a {
+        color: #ccc;
+        text-decoration: none;
+        margin-left: 1.5rem;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+.content {
+    padding: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+}
