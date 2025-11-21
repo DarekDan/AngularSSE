@@ -668,9 +668,9 @@ This architecture is evolving. Contributions and feedback welcome!
 
 ## 📝 License
 
-[Your License Here]
+MIT License
 
 ---
 
 **Last Updated**: November 2025  
-**Maintained By**: [Your Team Name]
+**Maintained By**: Antigravity and Dariusz Danielewski
