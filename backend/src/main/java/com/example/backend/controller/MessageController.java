@@ -4,6 +4,8 @@ import com.example.backend.service.SseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.lang.NonNull;
 
 @RestController
 @RequestMapping("/api")
@@ -19,7 +21,9 @@ public class MessageController {
     }
 
     @PostMapping("/message")
-    public void sendMessage(@RequestBody String message) {
-        sseService.send(message);
+    public void sendMessage(@RequestBody @NonNull String message) {
+        if (StringUtils.isNotBlank(message)) {
+            sseService.send(message);
+        }
     }
 }
