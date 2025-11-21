@@ -1,5 +1,6 @@
 package com.example.backend.service;
 
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
@@ -18,12 +19,12 @@ public class SseService {
 
         emitter.onCompletion(() -> this.emitters.remove(emitter));
         emitter.onTimeout(() -> this.emitters.remove(emitter));
-        emitter.onError((e) -> this.emitters.remove(emitter));
+        emitter.onError(e -> this.emitters.remove(emitter));
 
         return emitter;
     }
 
-    public void send(String message) {
+    public void send(@NonNull String message) {
         List<SseEmitter> deadEmitters = new CopyOnWriteArrayList<>();
         this.emitters.forEach(emitter -> {
             try {
