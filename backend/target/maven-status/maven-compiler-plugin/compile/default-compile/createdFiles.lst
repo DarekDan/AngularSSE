@@ -1,5 +1,0 @@
-com\example\backend\controller\MessageController.class
-com\example\backend\BackendApplication.class
-com\example\backend\config\SecurityConfig.class
-com\example\backend\service\SseService.class
-com\example\backend\config\SecurityConfig$BearerTokenFilter.class
